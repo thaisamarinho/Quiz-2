@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Make a New Request here:</h1>
+  <br>
+  <%= @request.errors.full_messages.join(", ") %>
+  <%= form_for @request do |f| %>
+    <div class="form-group">
+      <%=f.label :name %>
+      <%=f.text_field :name %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%=f.label :email %>
+      <%=f.text_field :email %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%=f.label :department %>
+      <%= f.radio_button :department, 'Sales' %> Sales
+      <%= f.radio_button :department, 'Marketing' %> Marketing
+      <%= f.radio_button :department, 'Technical' %> Technical
+    </div>
+    <br>
+    <div class="form-group">
+      <%=f.label :message %>
+      <%=f.text_area :message %>
+    </div>
+    <br>
+
+    <%= f.submit "save" %>
+  <%end%>
+</div>

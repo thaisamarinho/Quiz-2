@@ -1,0 +1,17 @@
+<div class="container">
+  <h2><%= @request.name %></h2>
+  <p>Email: <%= @request.email %></p>
+  <p>Department: <%= @request.department %></p>
+  <p>Message: <%= @request.message %></p>
+  <p>Action: <%= @request.actions %></p>
+  <br>
+  <div>
+    <%= link_to "Edit", edit_request_path(@request)%>
+    <br>
+    <br>
+    <%= link_to "Delete", request_path(@request),
+                          method: :delete,
+                          data: {confirm: 'Are you sure you want to delete this request?'}%>
+  </div>
+
+</div>

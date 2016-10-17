@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <nav>
+      <div id="nav-bar">
+      <%= link_to 'Home', home_path %>
+      |
+      <%= link_to 'New Request', new_request_path %>
+      |
+      <%= link_to 'All Requests', requests_path %>
+      
+    </div>
+  </nav>
+  <br>
+  <br>
+  <hr>
+    <%= yield %>
+  </body>
+</html>
