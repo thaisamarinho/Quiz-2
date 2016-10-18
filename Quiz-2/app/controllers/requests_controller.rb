@@ -47,4 +47,14 @@ class RequestsController < ApplicationController
     redirect_to requests_path
   end
 
+  def actions
+    request = Request.find params[:id]
+    if request.actions == "Not Done"
+      request.update_attribute(:actions, "Done")
+    else
+      request.update_attribute(:actions, "Not Done")
+    end
+    redirect_to requests_path
+  end
+
 end

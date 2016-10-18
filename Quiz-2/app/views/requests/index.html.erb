@@ -28,17 +28,22 @@
       <td>Message</td>
       <td>Actions</td>
     </tr>
-    <% @requests.each do |p|%>
+    <% @requests.each do |r|%>
     <tr>
-      <td><%= link_to p.id, request_path(p) %></td>
-      <td><%= link_to p.name, request_path(p) %></td>
-      <td><%= link_to p.email, request_path(p) %></td>
-      <td><%= link_to p.department, request_path(p) %></td>
-      <td><%= link_to p.message, request_path(p) %></td>
+      <td><%= link_to r.id, request_path(r) %></td>
+      <td><%= link_to r.name, request_path(r) %></td>
+      <td><%= link_to r.email, request_path(r) %></td>
+      <td><%= link_to r.department, request_path(r) %></td>
+      <td><%= link_to r.message, request_path(r) %></td>
       <td>
-        <%= link_to p.actions, edit_request_path(p)%> <hr>
-        <%= link_to "Edit", edit_request_path(p)%><br>
-        <%= link_to "Delete", request_path(p),
+        <% if r.actions == "Not Done" %>
+        <%= link_to "Not Done", actions_status_path(r), :method => :patch%>
+        <%else%>
+        <%= link_to "Done", actions_status_path(r), :method => :patch%>
+        <%end%>
+         <hr>
+        <%= link_to "Edit", edit_request_path(r)%><br>
+        <%= link_to "Delete", request_path(r),
                             method: :delete,
                             data: {confirm: 'Are you sure you want to delete this request?'}%>
       </td>

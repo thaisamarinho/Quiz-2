@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
   delete 'requests/:id' => 'requests#destroy'
 
+  patch '/requests/:id/actions' => 'requests#actions', as: :actions_status
+
 
 end
